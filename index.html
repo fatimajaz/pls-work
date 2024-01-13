@@ -1,0 +1,57 @@
+<body>
+<div id="clock-face"></div>
+<style>
+body {
+  background: #ccc;
+  height: 50%;
+  width: 100%;
+min-height: 0%;
+  overflow: hidden;
+}
+
+.border{
+  position: relative;
+  width: 50vw;
+height: 100vw;
+
+}
+
+#clock-face {
+  color: clear;
+  position: relative;
+  font-size: 13.5vw;
+  allign: center;
+  text-align: center;
+  width: 95vw;
+  line-height: 1.5em;
+  border-radius: 4vw;
+bottom-padding: 0;
+  position: relative;
+  top: -1vh;
+  border: .5mm solid;
+  font-family: Frutiger, ‘Frutiger Linotype’, Univers, Calibri, ‘Gill Sans’, ‘Gill Sans MT’, ‘Myriad Pro’, Myriad, ‘DejaVu Sans Condensed’, ‘Liberation Sans’, ‘Nimbus Sans L’, Tahoma, Geneva, ‘Helvetica Neue’, Helvetica, Arial, sans-serif;
+}
+</style>
+<script>
+var clockFace = document.getElementById("clock-face");
+
+function makeTwoDigits(number) {
+  if (number < 10) {
+    number = "0" + number;
+  }
+  return number;
+}
+
+function writeTime() {
+  var currentTime = new Date();
+  var hour = makeTwoDigits( currentTime.getHours() );
+  var minute = makeTwoDigits( currentTime.getMinutes() );
+  var second = makeTwoDigits( currentTime.getSeconds() );
+  //second = makeTwoDigits(second);
+  
+  clockFace.innerHTML = hour + ":" + minute + ":" + second;
+}
+
+setInterval( "writeTime()", 1000 );
+</script>
+</body>
